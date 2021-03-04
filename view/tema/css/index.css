@@ -1,0 +1,89 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    background: linear-gradient(180deg, rgba(215,237,255,1) 0%, rgba(234,246,255,1) 53%, rgba(255,255,255,1) 100%);
+    display: flex;
+    justify-content: center;
+    display: flex; 
+    align-items: center; 
+}
+
+.btn-tool{
+    margin: 0 !important;
+}
+
+label {
+    margin: 0 !important;
+}
+
+.panel-login {
+    display: grid;
+    background-color: #FFF;
+    box-shadow: #b4b4b4 0px 0px 6px 1px;
+    color: #aaa5ff;
+    height: 300px;
+}
+
+.panel-login .label-login {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    padding: 5px 30px;
+}
+
+.panel-login .label-login .login{
+    width: 100%;
+    text-align: center;
+}
+
+
+.panel-login .label-login .border {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(170,165,255,1) 0%, rgba(255,255,255,1) 50%, rgba(170,165,255,1) 100%);
+}
+.panel-login .panel {
+    padding: 5px 30px;
+}
+.panel-login .panel .input-login{
+    display: block;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.panel-login .panel .input-login:focus,
+.panel-login .panel .input-submit:focus{
+    outline: none;
+}
+
+.panel-login .panel .input-submit{
+    padding: 4px;
+    display: block;
+    border: none;
+    background-color: #aaa5ff;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.panel-login .panel .input-submit:hover{
+    background-color: #90b3ff;
+    cursor: pointer;
+}
+
+.panel-login .label-contact {
+    padding: 5px 30px;
+    background: #aaa5ff;
+    align-items: center;
+    display: flex;
+}
+
+.panel-login .label-contact span{
+    color: black;
+}
+
+.panel-login .label-contact span:hover{
+    color: #FFF;
+    cursor: pointer;
+}

@@ -1,0 +1,8 @@
+lib/bin
+lib/composer
+lib/dompdf
+lib/phenx
+lib/sabberworm
+lib/smarty
+view/compile
+adm/view/compile
