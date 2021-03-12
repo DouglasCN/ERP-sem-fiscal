@@ -9,6 +9,7 @@ if(!isset($_SESSION)){
 
   
     $smarty->assign('ROTA_TEMA', Rotas::get_SiteTEMA());
+    $smarty->assign('PAG_FUNCIONARIOS', Rotas::pag_Funcionarios());
     $smarty->assign('ROTA_PAGINAS', Rotas::get_SiteADM());
    
     

@@ -1,0 +1,65 @@
+ 
+.tab .inputAba {
+    display: none;
+}
+/*envolve todo o nosso conteúdo*/
+.tab .labelAba {
+    display: block;
+    float: left;
+    padding: 12px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color .3s;
+    margin-bottom: 0;
+}
+
+.tab .labelAba:hover,
+.tab input:checked + .labelAba {
+    background: #134f81;
+    color: #fff;
+}
+
+.tabs {
+    clear: both;
+    perspective: 400px;
+    -webkit-perspective: 400px;
+}
+
+.tabs .content {
+    background: #fff; 
+    border: 2px solid #134f81;
+    padding: 10px 30px 20px;
+    line-height: 1.4em;
+    width: 100%;
+    transition: opacity .5s, transform 1s;
+
+}
+
+#visualizar,
+#cadastro,
+#lista{
+    display: none;
+    opacity: 0; 
+    -webkit-transition: opacity 0.8s ease-in-out;
+    -moz-transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#lista {
+    display: block;
+    opacity: 1;
+}
+
+
+.userSistema {
+    display: none;
+    opacity: 0; 
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#radioS:checked ,
+#radioN:checked{
+    opacity: 0.9;
+}

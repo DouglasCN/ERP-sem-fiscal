@@ -41,8 +41,8 @@ class Rotas {
 		return self::get_SiteHOME(). '/' . self::$pag_adm;
 	}
 	
-	static function pag_Clientes(){
-		return self::get_SiteADM(). '/clientes';
+	static function pag_Funcionarios(){
+		return self::get_SiteADM(). '/funcionarios';
 	}
 
 	static function pag_Cliente($id = NULL){

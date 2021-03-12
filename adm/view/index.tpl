@@ -24,14 +24,13 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="{$ROTA_TEMA}/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{$ROTA_TEMA}/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{$ROTA_TEMA}/dist/css/adminlte.min.css"> 
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{$ROTA_TEMA}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{$ROTA_TEMA}/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{$ROTA_TEMA}/plugins/summernote/summernote-bs4.min.css">
-  <link rel="stylesheet" href="{$ROTA_TEMA}/css/home.css">
 
 </head>
 
@@ -128,7 +127,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{$PAG_FUNCIONARIOS}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Funcionários</p>
                   </a>
@@ -284,8 +283,7 @@
       <!-- /.sidebar -->
     </aside>
 
-    <div class="content-wrapper">
-      <div style="display:flex; justify-content: center; height: 100%;">
+    <div class="content-wrapper" >
         {php}
         if(Rotas::get_Pagina() == 0){
 
@@ -296,7 +294,6 @@
         {php}
         }
         {/php}
-      </div>
     </div>
 
     <footer class="main-footer">

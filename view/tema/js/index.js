@@ -1,3 +1,5 @@
+// INICIO DO JS PARA PESQUISA DE MODULOS
+
 $( "#searchModule" ).keyup(function() {
     if(document.getElementById("searchModule").value.length <= 0){
       $( "#dropdownModule" ).removeClass( "show" );
@@ -42,3 +44,7 @@ function getProdutoREF() {
         })
       })
   }
+
+  //FIM DO JS DE MODULO
+
+ 
