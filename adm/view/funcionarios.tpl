@@ -146,8 +146,8 @@
               <div class="form-group">
                 <label>Nivel de acesso</label>
                 <select class="form-control form-control-sm" name="nivelAcesso">
-                  <option value="0"></option>
-                  <option value="$C.idClient">$C.nomeResponsavel</option>
+                  <option value="1"></option>
+                  <option value="1">$C.nomeResponsavel</option>
                 </select>
               </div>
             </div>
@@ -331,8 +331,8 @@
               <div class="form-group">
                 <label>Nivel de acesso</label>
                 <select class="form-control form-control-sm" name="nivelAcesso">
-                  <option value="0"></option>
-                  <option value="$C.idClient">$C.nomeResponsavel</option>
+                  <option value="1"></option>
+                  <option value="1">$C.nomeResponsavel</option>
                 </select>
               </div>
             </div>

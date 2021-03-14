@@ -9,7 +9,4 @@ if(!isset($_SESSION)){
    
     $smarty->display('cadastro-produto.tpl');
 
-
-
-
 ?>
