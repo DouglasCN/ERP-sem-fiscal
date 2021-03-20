@@ -8,6 +8,35 @@ if(!isset($_SESSION)){
 $smarty = new Template();
 $funcionario = new Funcionario();
 
+if(isset($_POST['codigoUnicoView'])){
+    $codigoUnico = $_POST['codigoUnicoView'];
+    $nome = $_POST['NomeView']; 
+    $email = $_POST['EmailView']; 
+    $CPF = $_POST['CPFView']; 
+    $contato1 = $_POST['contato1View']; 
+    $contato2 = $_POST['contato2View']; 
+    $dataAniversario = $_POST['dataAnivrsarioView']; 
+    $salario = $_POST['salarioView']; 
+    $tipoCliente = isset($_POST['tipoClienteView']) ? 1 : 0; 
+    $tipoFornecedor =  isset($_POST['tipoFornecedorView']) ? 1 : 0; 
+    $tipoFuncionario = true; 
+    $cep = $_POST['cepView']; 
+    $estado = $_POST['estadoView']; 
+    $cidade = $_POST['cidadeView']; 
+    $bairro = $_POST['bairroView']; 
+    $logradouro = $_POST['logradouroView']; 
+    $complemento = $_POST['complementoView']; 
+    $numero = $_POST['numeroView'];
+    $observacao = $_POST['observacaoView'];
+
+    $funcionario->Preparar($codigoUnico, $nome, $email, $CPF, $contato1, $contato2, $dataAniversario, $salario, "", 
+    "", "", "", $tipoCliente, $tipoFornecedor, "", $cep, $estado, $cidade, $bairro,
+    $logradouro, $complemento, $numero, $observacao, ""); 
+
+    $funcionario->Alterar();
+}
+
+//cadastrar funcionario
 if(isset($_POST['Nome'])){
     $nome = $_POST['Nome']; 
     $email = $_POST['Email']; 

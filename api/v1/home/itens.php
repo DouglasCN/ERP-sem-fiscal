@@ -1,5 +1,5 @@
 <?php
-require "../../lib/autoload.php";
+require "../../../lib/autoload.php";
 if(!isset($_SESSION)){
     session_start();
 } 

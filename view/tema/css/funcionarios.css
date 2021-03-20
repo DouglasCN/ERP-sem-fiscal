@@ -1,8 +1,9 @@
  
+/* CSS das abas */
 .tab .inputAba {
     display: none;
 }
-/*envolve todo o nosso conteúdo*/
+
 .tab .labelAba {
     display: block;
     float: left;
@@ -62,4 +63,33 @@
 #radioS:checked ,
 #radioN:checked{
     opacity: 0.9;
+}
+
+/* CSS da paginação */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 8px;
+}
+
+.controls div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14;
+}
+
+.controls div:not(.numbers),
+.controls div.numbers div{
+    width: 40px;
+    height: 40px;
+}
+
+.controls div.numbers div:hover,
+.controls div.numbers div.active {
+    color: #e2c104;
 }

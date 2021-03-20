@@ -4,7 +4,7 @@ $( "#searchModule" ).keyup(function() {
     if(document.getElementById("searchModule").value.length <= 0){
       $( "#dropdownModule" ).removeClass( "show" );
     }else{
-      getProdutoREF();
+      getModulosPesquisa();
       $( "#dropdownModule" ).addClass( "show" );
     }
 });
@@ -19,11 +19,11 @@ function close(){
 }
 
 
-function getProdutoREF() {
+function getModulosPesquisa() {
       $(document).ready(function () {
         var ajax = new XMLHttpRequest();
         var ref = document.getElementById("searchModule").value;
-        ajax.open("GET", 'http://localhost/erp/api/v1/itens.php?nome='+ ref);
+        ajax.open("GET", 'http://localhost/erp/api/v1/home/itens.php?nome='+ ref);
         
         ajax.responseType = "json";
 

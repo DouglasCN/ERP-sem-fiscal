@@ -90,8 +90,123 @@ class Funcionario extends Conexao{
             $this->Dialog("Houve um problema ao cadastrar o cliente, entre em contato com o desenvolvedor!", "falha");
         }
     }
+
+    function Alterar(){
+        
+        $query = "UPDATE {$this->prefix}parceiro set razaoSocial = :razaoSocial,  CPF_CNPJ = :CPF_CNPJ,  parceiroCliente= :parceiroCliente,
+         parceiroFornecedor = :parceiroFornecedor, cep = :cep, estado = :estado, cidade = :cidade, bairro= :bairro, endereco = :endereco, 
+         complemento = :complemento, numero = :numero, contato1 = :contato1, contato2 = :contato2, email = :email, observacao = :observacao, 
+         dataAniversario = :dataAniversario , quemAtualizou = :quemAtualizou, ultimaAtualizacao = :ultimaAtualizacao, salario = :salario 
+         WHERE codigoUnico = :codigoUnico";
+        
+        $params = array(
+            ':razaoSocial' => $this->getFunc_razaoSocial(),
+            ':codigoUnico' => $this->getFunc_numeroUnico(),
+            ':CPF_CNPJ' => $this->getFunc_cpf(),
+            ':parceiroCliente' => $this->getFunc_parceiroCliente(),
+            ':parceiroFornecedor' => $this->getFunc_parceiroFornecedor(),
+            ':cep' => $this->getFunc_cep(),
+            ':estado' => $this->getFunc_estado(),
+            ':cidade' => $this->getFunc_cidade(),
+            ':bairro' => $this->getFunc_bairro(),
+            ':endereco' => $this->getFunc_logradouro(),
+            ':complemento' => $this-> getFunc_complemento(),
+            ':numero' => $this->getFunc_numero(),
+            ':contato1' => $this->getFunc_contato1(),
+            ':contato2' => $this->getFunc_contato2(),
+            ':email' => $this->getFunc_email(),
+            ':observacao' => $this->getFunc_observacao(),
+            ':dataAniversario' => $this->getFunc_dataAniversario(),
+            ':quemAtualizou' => $_SESSION[''],
+            ':ultimaAtualizacao' => date('Y-m-d'),
+            ':salario' => $this->getFunc_salario()
+        ); 
+        if($this->ExecuteSQL($query, $params)){
+            $this->Dialog("Cliente alterado(a) com sucesso!", "sucesso");
+ 
+        }else {
+            $this->Dialog("Houve um problema ao cadastrar o cliente, entre em contato com o desenvolvedor!", "falha");
+        }
+    }
     
-    
+    function getListaFuncionarioAPI(){
+        $query = "SELECT * FROM {$this->prefix}parceiro WHERE excluido = false ";
+        
+        $this->ExecuteSQL($query);
+
+        $this->GetListaFuncionarioJSON();
+    }
+
+    function getListaFuncionarioCodigoAPI($id){
+        $query = "SELECT * FROM {$this->prefix}parceiro WHERE excluido = false AND codigoUnico = :id";
+        
+        $params = array(
+            ':id' => (int)$id 
+        ); 
+
+        $this->ExecuteSQL($query,$params);
+
+        $this->GetListaFuncionarioCodigoUnicoJSON();
+    }
+
+    private function GetListaFuncionarioCodigoUnicoJSON(){
+        
+        if($this->TotalDados() > 0 ){
+
+            $i = 1;
+            while($lista = $this->ListarDados()):
+                $produtos[$i] = [
+                    'codigoUnico'=> $lista['codigoUnico'],
+                    'razaoSocial'=> $lista['razaoSocial'],
+                    'CPF_CNPJ'=> $lista['CPF_CNPJ'],
+                    'parceiroCliente'=> $lista['parceiroCliente'],
+                    'parceiroFornecedor'=> $lista['parceiroFornecedor'],
+                    'parceiroFuncionario'=> $lista['parceiroFuncionario'],
+                    'cep'=> $lista['cep'],
+                    'estado'=> $lista['estado'],
+                    'cidade'=> $lista['cidade'],
+                    'bairro'=> $lista['bairro'],
+                    'endereco'=> $lista['endereco'],
+                    'complemento'=> $lista['complemento'],
+                    'numero'=> $lista['numero'],
+                    'contato1'=> $lista['contato1'],
+                    'contato2'=> $lista['contato2'],
+                    'email'=> $lista['email'],
+                    'observacao'=> $lista['observacao'],
+                    'usuario'=> $lista['usuario'],
+                    'salario'=> $lista['salario'],
+                    'foto'=> $lista['foto'],
+                    'nivelAcesso'=> $lista['nivelAcesso'],
+                    'dataAniversario'=> date("d/m/Y", strtotime($lista['dataAniversario']))
+                ];
+                $i++;
+            endwhile;
+            echo json_encode(array_values($produtos));
+            
+        }
+    }
+
+    private function GetListaFuncionarioJSON(){
+        
+        if($this->TotalDados() > 0 ){
+
+            $i = 1;
+            while($lista = $this->ListarDados()):
+                $produtos[$i] = [
+                    'codigoUnico'=> $lista['codigoUnico'],
+                    'razaoSocial'=> $lista['razaoSocial'],
+                    'CPF_CNPJ'=> $lista['CPF_CNPJ'],
+                    'contato1'=> $lista['contato1'],
+                    'contato2'=> $lista['contato2'],
+                    'dataAniversario'=> date("d/m/Y", strtotime($lista['dataAniversario']))
+                ];
+                $i++;
+            endwhile;
+            echo json_encode(array_values($produtos));
+            
+        }
+    }
+
     private function GetLista(){
         $i = 1;
         //eu estou chamando o meu metodo listar dados da classe conexão
